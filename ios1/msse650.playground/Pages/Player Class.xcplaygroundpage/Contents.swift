@@ -8,12 +8,14 @@ class Player{
     var dob: String
     var age = 0
     var team: String
+    var position: String
     
-    init(fname: String, lname: String, dob: String, team: String) {
+    init(fname: String, lname: String, dob: String, team: String, position: String) {
         self.fname = fname
         self.lname = lname
         self.dob = dob
         self.team = team
+        self.position = position
     }
     func palyerAge() -> Int{
         let dateFormater = DateFormatter()
@@ -29,8 +31,9 @@ class Player{
     
 }
 
-let myPlayer = Player(fname: "Mike", lname: "Peterson", dob: "04/11/1977", team: "Denver")
+let myPlayer = Player(fname: "Mike", lname: "Peterson", dob: "04/11/1977", team: "Denver", position: "Running")
 let myPlayerTeam = myPlayer.team
 let myPlayerAge = myPlayer.palyerAge()
+print(myPlayer)
 
 
