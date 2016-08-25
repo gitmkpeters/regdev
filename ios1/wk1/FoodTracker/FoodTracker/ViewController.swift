@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK:UITextFieldDelegate
+    //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -44,6 +44,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         mealNameLabel.text = textField.text
     }
 
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        //Dismiss the picker if the user cancled
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //The info in dictionary contains multiple representations of the image, and this uses the original
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //Set the photoImage to display the selected image
+        photoImageView.image = selectedImage
+        
+        //Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     //MARK: Actions
     

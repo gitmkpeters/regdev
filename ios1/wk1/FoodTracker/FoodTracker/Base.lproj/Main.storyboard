@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,12 +43,10 @@
                                     <constraint firstAttribute="trailing" secondItem="qes-9v-sY6" secondAttribute="trailing" id="ccU-FE-pdl"/>
                                 </constraints>
                             </stackView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Zyz-kU-Qpc">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Zyz-kU-Qpc">
                                 <frame key="frameInset" minX="27" minY="203" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zyz-kU-Qpc" secondAttribute="height" multiplier="1:1" id="ixr-jJ-eTq"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Nu0-Bb-vwe" appends="YES" id="40h-3c-0Px"/>
                                 </connections>
