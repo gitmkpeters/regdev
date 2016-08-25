@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,6 +44,16 @@
                                     <constraint firstAttribute="trailing" secondItem="qes-9v-sY6" secondAttribute="trailing" id="ccU-FE-pdl"/>
                                 </constraints>
                             </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Zyz-kU-Qpc">
+                                <frame key="frameInset" minX="27" minY="203" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zyz-kU-Qpc" secondAttribute="height" multiplier="1:1" id="ixr-jJ-eTq"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Nu0-Bb-vwe" appends="YES" id="40h-3c-0Px"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,11 +65,20 @@
                     <connections>
                         <outlet property="mealNameLabel" destination="yfT-hs-m7P" id="yxB-PG-YUU"/>
                         <outlet property="mealNameTxtFld" destination="qes-9v-sY6" id="nO6-FC-SO7"/>
+                        <outlet property="photoImageView" destination="Zyz-kU-Qpc" id="qUk-Ub-rpt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Nu0-Bb-vwe">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="KCf-jc-Fla"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="324" y="137"/>
+            <point key="canvasLocation" x="324" y="136.28185907046478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
 </document>
