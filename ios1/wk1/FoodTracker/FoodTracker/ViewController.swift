@@ -15,9 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //MARK: Properties
     @IBOutlet weak var mealNameTxtFld: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
-    
-    
+    @IBOutlet weak var photoImageView: UIImageView!        
+    @IBOutlet weak var ratingControl: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +77,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         imagePickerController.delegate = self
         
         present(imagePickerController, animated: true, completion: nil)
-    }
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
     }
 }
 
