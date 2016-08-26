@@ -23,11 +23,13 @@ class RatingControl: UIView {
         super.init(coder: aDecoder)
         
         for _ in 0..<starCount {
-            
-            //Create Buttons
+            let filledStarImage = UIImage(named: "filledStar")
+            let emptyStarImage = UIImage(named: "filledStar")
+            //Create Button Intances
             let button = UIButton()
-            //let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-            button.backgroundColor = UIColor.red
+            button.setImage(emptyStarImage, for: .normal)
+            button.setImage(filledStarImage, for: .selected)
+            button.setImage(filledStarImage, for: [.highlighted, .selected])        
         
             //Show the button
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchDown)
