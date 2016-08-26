@@ -51,6 +51,21 @@
                                     <outletCollection property="gestureRecognizers" destination="Nu0-Bb-vwe" appends="YES" id="40h-3c-0Px"/>
                                 </connections>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2ya-Ds-fTW">
+                                <frame key="frameInset" minX="27" minY="531" width="240" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i47-Zz-Rsh">
+                                        <frame key="frameInset" width="240" height="44"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="7On-ul-5ZI" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                                <frame key="frameInset" width="240" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
