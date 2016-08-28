@@ -120,4 +120,18 @@ class MealTableViewController: UITableViewController {
     }
     */
     
+    //MARK: Actions
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue){
+        
+        //This the downcoast from the segue is from MealViewController than the meal property is non-nill and the
+        //this If statements fires
+        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal{
+            //Add a new meal
+            let newIndexPath = NSIndexPath(row: meals.count, section: 0)
+            meals.append(meal)
+            tableView.insertRows(at: [newIndexPath as IndexPath], with: .bottom)
+        }
+        
+    }
+    
 }
