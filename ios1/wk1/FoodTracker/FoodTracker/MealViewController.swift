@@ -31,6 +31,19 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Handle the text field’s user input through delegate callbacks.
         mealNameTxtFld.delegate = self
         
+        
+        //set up views if editing and existing Meal
+        if let meal = meal{
+            navigationItem.title = meal.name
+            mealNameTxtFld.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
+        
+        //Enable the Save Button only if the text field has a valid meal Name
+        checkValidMealName()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +58,20 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //Disable the Save button while editing.
+        saveMealButton.isEnabled = false
+    }
+    
+    func checkValidMealName(){
+        //Disable the save button if the text field empty
+        let text = mealNameTxtFld.text ?? ""
+        saveMealButton.isEnabled = !text.isEmpty
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        checkValidMealName()
+        navigationItem.title = textField.text
         
     }
 
@@ -66,7 +92,19 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Actions
+    // MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        //Depending on the style of the presentation (modal or push), this view controller needs to be dismissed in two differnt ways
+        let isPresentInAddMealMode = presentedViewController is UINavigationController
+        if isPresentInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }else{
+            navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if saveMealButton.title == "Save"{
