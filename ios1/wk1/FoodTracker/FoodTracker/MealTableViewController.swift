@@ -16,11 +16,18 @@ class MealTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Load the sample data
-        loadSampleMeals()
-        
         //Use the edit button item prodided by the table voew controll
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        // Load any saved meals, otherwise load sample data.
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        }else{
+            // Load the sample data
+            loadSampleMeals()
+        }
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -92,10 +99,12 @@ class MealTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            // Save the meals.
+            saveMeals()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
 
@@ -152,9 +161,22 @@ class MealTableViewController: UITableViewController {
                 meals.append(meal)
                 tableView.insertRows(at: [newIndexPath as IndexPath], with: .bottom)
             }
+            // Save the meals.
+            saveMeals()
         }
         
     }
     
+    //MARK:  NSCoding
+    func saveMeals(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        if !isSuccessfulSave{
+            print("Failed to save meals")
+        }
+    }
+    
+    func loadMeals() -> [Meal]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    }
 
 }
