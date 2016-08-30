@@ -20,7 +20,7 @@ class Player {
     // Usage:
     // Parameter: Date {String mm/dd/yyyy format}
     // Return: Age {Int}
-    func calcAge(birthday:String) -> Int{
+    func calcAge() -> Int{
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "MM/dd/yyyy"
         let birthdayDate = dateFormater.date(from: self.dob)
@@ -31,5 +31,8 @@ class Player {
         let age = calcAge.year
         return age!
     }
-        
 }
+
+let myPlayer = Player(fname: "Mike", lname: "Peterson", team: "Denver", dob: "04/11/1977")
+myPlayer.calcAge()
+print(myPlayer.fname,myPlayer.lname,myPlayer.calcAge())
