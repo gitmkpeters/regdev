@@ -1,4 +1,4 @@
-//: ## Classes and Initializers
+ //: ## Classes and Initializers
 //:
 //: In object-oriented programming, the behavior of a program is based largely on interactions between objects. An _object_ is an instance of a _class_, which can be thought of as a blueprint for that object. Classes store additional information about themselves in the form of _properties_, and define their behavior using methods.
 //:
@@ -122,9 +122,9 @@ var squares = 0
 var triangles = 0
 for shape in shapesArray {
    if let square = shape as? Square {
-      squares++
+      squares += 1
    } else if let triangle = shape as? Triangle {
-      triangles++
+      triangles += 1
    }
 }
 print("\(squares) squares and \(triangles) triangles.")

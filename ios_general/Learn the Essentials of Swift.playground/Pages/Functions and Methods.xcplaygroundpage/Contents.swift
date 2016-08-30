@@ -10,9 +10,9 @@ func greet(name: String, day: String) -> String {
 
 //: Call a function by following its name with a list of _arguments_ (the values you pass in to satisfy a function’s parameters) in parentheses. When you call a function, you pass in the first argument value without writing its name, and every subsequent value with its name.
 //:
-greet("Anna", day: "Tuesday")
-greet("Bob", day: "Friday")
-greet("Charlie", day: "a nice day")
+greet(name: "Anna", day: "Tuesday")
+greet(name: "Bob", day: "Friday")
+greet(name: "Charlie", day: "a nice day")
 
 //: Functions that are defined within a specific type are called _methods_. Methods are explicitly tied to the type they’re defined in, and can only be called on that type (or one of its subclasses, as you’ll learn about soon). In the earlier `switch` statement example, you saw a method that’s defined on the `String` type called `hasSuffix()`, shown again here:
 //:
@@ -24,7 +24,7 @@ if exampleString.hasSuffix("lo") {
 //: As you see, you call a method using the dot syntax. When you call a method, you pass in the first argument value without writing its name, and every subsequent value with its name. For example, this method on `Array` takes two parameters, and you only pass in the name for the second one:
 //:
 var array = ["apple", "banana", "dragonfruit"]
-array.insert("cherry", atIndex: 2)
+array.insert("cherry", at: 2)
 array
 
 //: [Previous](@previous) | [Next](@next)

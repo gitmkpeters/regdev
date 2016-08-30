@@ -45,7 +45,7 @@ if let name = optionalName {
 //: You can use a single `if` statement to bind multiple values. A `where` clause can be added to a case to further scope the conditional statement. In this case, the `if` statement executes only if the binding is successful for all of these values and all conditions are met.
 //:
 var optionalHello: String? = "Hello"
-if let hello = optionalHello where hello.hasPrefix("H"), let name = optionalName {
+if let hello = optionalHello , hello.hasPrefix("H"), let name = optionalName {
     greeting = "\(hello), \(name)"
 }
 

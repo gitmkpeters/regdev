@@ -19,7 +19,7 @@ import UIKit
 //: After importing UIKit, you can use Swift syntax with UIKit types and with their methods, properties, and so on.
 //:
 let redSquare = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-redSquare.backgroundColor = UIColor.redColor()
+redSquare.backgroundColor = UIColor.red
 
 //: Many of the classes you’ll be introduced to in the lessons come from UIKit, so you’ll see this import statement often.
 //:
